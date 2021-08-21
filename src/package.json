@@ -1,0 +1,9 @@
+{
+  "name": "api-src",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.13.7"
+  }
+}
