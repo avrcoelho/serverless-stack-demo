@@ -4,7 +4,8 @@
   "description": "",
   "license": "MIT",
   "dependencies": {
-    "mongoose": "^5.13.7"
+    "mongoose": "^5.13.7",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@types/mongodb": "^4.0.7"
