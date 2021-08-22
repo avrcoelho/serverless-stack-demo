@@ -1,16 +1,17 @@
-import * as mongodb from "mongodb";
+import { MongoClient, Db } from "mongodb";
 
-const MongoClient = mongodb.MongoClient;
-let cachedDb: any = null;
+let cachedDb: Db;
 
 export async function connectToDatabase() {
-  console.log(process.env.MONGODB_URI);
   if (cachedDb) {
     return cachedDb;
   }
 
-  const client = await MongoClient.connect(String(process.env.MONGODB_URI));
-  cachedDb = await client.db("serverless-stack-demo");
+  const client = await MongoClient.connect(String(process.env.MONGODB_URI), {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  cachedDb = client.db("serverless-stack-demo");
 
   return cachedDb;
 }
