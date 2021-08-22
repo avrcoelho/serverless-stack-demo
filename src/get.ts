@@ -6,7 +6,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (_, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
   const db = await connectToDatabase();
-  const list = await db.collection("list").find().sort().toArray();
+  const list = await db.collection("list").find().toArray();
 
   return {
     statusCode: 200,
