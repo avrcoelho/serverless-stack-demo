@@ -8,9 +8,17 @@ export default class MyStack extends sst.Stack {
       routes: {
         "GET /": {
           function: {
-            bundle: false,
             srcPath: "src/",
             handler: "get.handler",
+            environment: {
+              MONGODB_URI: String(process.env.MONGODB_URI),
+            },
+          },
+        },
+        "POST /": {
+          function: {
+            srcPath: "src/",
+            handler: "create.handler",
             environment: {
               MONGODB_URI: String(process.env.MONGODB_URI),
             },
